@@ -17,7 +17,7 @@ let conUrl = process.env.DATABASE_CLOUD;
 conUrl = conUrl.replace('<password>', process.env.DATABASE_PASSWORD);
 
 mongoose
-   .connect(conUrl, {
+   .connect('mongodb+srv://Rayan:VTJo8Y2xsILAj54G@cluster0.gqawm.mongodb.net/bus-tracking?retryWrites=true&w=majority', {
       useNewUrlParser: true,
       useCreateIndex: true,
       useFindAndModify: false,
