@@ -1,6 +1,8 @@
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 
+console.log(process.env.DATABASE_CLOUD);
+
 process.on('uncaughtException', (err) => {
    console.log('uncaught Exception! Shutting down');
    console.log(err);
@@ -17,7 +19,7 @@ let conUrl = process.env.DATABASE_CLOUD;
 conUrl = conUrl.replace('<password>', process.env.DATABASE_PASSWORD);
 
 mongoose
-   .connect('mongodb+srv://Rayan:VTJo8Y2xsILAj54G@cluster0.gqawm.mongodb.net/bus-tracking?retryWrites=true&w=majority', {
+   .connect('', {
       useNewUrlParser: true,
       useCreateIndex: true,
       useFindAndModify: false,
