@@ -16,6 +16,7 @@ dotenv.config({
 const app = require('./app');
 
 let conUrl = process.env.DATABASE_CLOUD;
+let conUrl = 'mongodb+srv://Rayan:<password>@cluster0.gqawm.mongodb.net/bus-tracking?retryWrites=true&w=majority';
 conUrl = conUrl.replace('<password>', process.env.DATABASE_PASSWORD);
 
 mongoose
