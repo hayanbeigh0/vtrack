@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
+const compression = require('compression');
 
 const globalErrorHandler = require('./controllers/errorController');
 const AppError = require('./utilities/appError');
@@ -9,10 +10,10 @@ const busRouter = require('./routes/busRoutes');
 const userRouter = require('./routes/userRoutes');
 
 const app = express();
-app.use((req, res, next) => {
-   console.log(req.headers);
-   next();
-});
+// app.use((req, res, next) => {
+//    console.log(req.headers);
+//    next();
+// });
 
 // GLOBAL-MIDDLEWARES ---
 // SET Security HTTP headers
@@ -37,6 +38,8 @@ app.use(express.json({ limit: '10KB' }));
 
 // Serving Static Files
 app.use(express.static(`${__dirname}/public`));
+
+app.use(compression());
 
 // ROUTE HANDLERS ---
 app.use('/api/v1/buses', busRouter);

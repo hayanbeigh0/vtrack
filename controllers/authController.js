@@ -146,7 +146,6 @@ const forgotPassword = catchAsync(async (req, res, next) => {
    // 2. Create the random password reset token
    const token = user.createPasswordResetToken();
    await user.save({ validateBeforeSave: false });
-   console.log(user);
 
    // 3. Send the token back to the user's email
    const resetURL = `${req.protocol}://${req.get(
@@ -232,7 +231,6 @@ const updatePassword = catchAsync(async (req, res, next) => {
 
    // 1. Get the user
    const user = await User.findById(req.user._id).select('+password');
-   console.log(user);
    // const user = req.user;
 
    if (!(await user.correctPassword(req.body.password, user.password)))
