@@ -11,7 +11,8 @@ const userRouter = require('./routes/userRoutes');
 
 const app = express();
 // app.use((req, res, next) => {
-//    console.log(req.headers);
+//    console.log(process.env.SENDGRID_USERNAME);
+//    console.log(process.env.SENDGRID_PASSWORD);
 //    next();
 // });
 
