@@ -19,8 +19,10 @@ const app = require('./app');
 let conUrl = 'mongodb+srv://Rayan:<password>@cluster0.gqawm.mongodb.net/bus-tracking?retryWrites=true&w=majority';
 conUrl = conUrl.replace('<password>', process.env.DATABASE_PASSWORD);
 
+const connection_string = 'mongodb+srv://Rayan:VTJo8Y2xsILAj54G@cluster0.gqawm.mongodb.net/bus-tracking?retryWrites=true&w=majority'
+
 mongoose
-   .connect('', {
+   .connect(conUrl, {
       useNewUrlParser: true,
       useCreateIndex: true,
       useFindAndModify: false,
