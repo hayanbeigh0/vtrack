@@ -7,6 +7,10 @@ const router = express.Router();
 // router.param('id', busController.checkId);
 
 // ------------- WORK AROUND - REMOVING HTTP METHODS
+
+// for auduino:
+router.get('/updateBus-arduino/:id', busController.updateBusLocationArduino)
+
 router.post(
    '/updateBus/:id',
    authController.protect,

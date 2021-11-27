@@ -37,6 +37,24 @@ const getBus = catchAsync(async (req, res, next) => {
    });
 });
 
+const updateBusLocationArduino = catchAsync(async (req, res, next) => {
+   const bus = await Bus.findByIdAndUpdate(req.params.id, {
+      currentLocation: req.query.coordinates,
+   }, {
+      new: true, 
+      runValidators: true
+   })
+
+   if (!bus) return next(new AppError('No bus found with that id.', 404));
+
+   res.status(200).json({
+      status: 'success',
+      data: {
+         bus,
+      },
+   });
+})
+
 const updateBus = catchAsync(async (req, res, next) => {
    const bus = await Bus.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -70,4 +88,5 @@ module.exports = {
    createBus,
    updateBus,
    deleteBus,
+   updateBusLocationArduino
 };
