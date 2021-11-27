@@ -39,7 +39,8 @@ const getBus = catchAsync(async (req, res, next) => {
 
 const updateBusLocationArduino = catchAsync(async (req, res, next) => {
    const bus = await Bus.findByIdAndUpdate(req.params.id, {
-      currentLocation: req.query.coordinates,
+      currentLocationLat: req.query.lat,
+      currentLocationLng: req.query.lng
    }, {
       new: true, 
       runValidators: true

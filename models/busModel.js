@@ -26,7 +26,10 @@ const busSchema = new mongoose.Schema({
       type: Number,
       default: 0,
    },
-   currentLocation: {
+   currentLocationLat: {
+      type: String,
+   },
+   currentLocationLng: {
       type: String,
    },
    toUniStartTime: {
