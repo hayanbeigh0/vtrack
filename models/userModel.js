@@ -56,6 +56,14 @@ const userSchema = new mongoose.Schema({
          message: 'Passwords do not match',
       },
    },
+   busStopLat: {
+      type: String,
+      default: null
+   },
+   busStopLng: {
+      type: String,
+      default: null
+   },
    passwordResetToken: {
       type: String,
    },

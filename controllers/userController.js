@@ -74,7 +74,7 @@ const updateMe = catchAsync(async (req, res, next) => {
       );
 
    // 2. Update user document
-   const filteredBody = filterObj(req.body, 'name');
+   const filteredBody = filterObj(req.body, 'name', 'busStopLng', 'busStopLat', 'phoneNumber');
 
    const user = await User.findByIdAndUpdate(req.user._id, filteredBody, {
       new: true,
