@@ -78,6 +78,14 @@ const userSchema = new mongoose.Schema({
       default: true,
       select: false,
    },
+   isBoarded: {
+      type: Boolean,
+      default: false,
+   },
+   myRoute: {
+      type: Number,
+      default: 0
+   }
 });
 
 userSchema.pre('save', async function (next) {

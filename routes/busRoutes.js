@@ -18,6 +18,8 @@ router.post(
    busController.updateBus
 );
 
+router.get('/studentsBoardedCount', authController.protect, busController.getBoardedCount)
+
 router.get(
    '/deleteBus/:id',
    authController.protect,

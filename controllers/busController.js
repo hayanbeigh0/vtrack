@@ -1,6 +1,7 @@
 const Bus = require('../models/busModel');
 const catchAsync = require('../utilities/catchAsync');
 const AppError = require('../utilities/appError');
+const User = require('../models/userModel');
 
 const getAllBuses = catchAsync(async (req, res, next) => {
    const buses = await Bus.find();
@@ -83,11 +84,24 @@ const deleteBus = catchAsync(async (req, res, next) => {
    });
 });
 
+const getBoardedCount = catchAsync(async (req, res, next) => {
+   const routeNo = req.user.myRoute;
+   const studentBoardedCount = await User.find({isBoarded: true, myRoute: routeNo});
+
+   res.status(200).json({
+      status: 'success',
+      data: {
+         studentsBoarded: studentBoardedCount.length
+      }
+   })
+})
+
 module.exports = {
    getAllBuses,
    getBus,
    createBus,
    updateBus,
    deleteBus,
-   updateBusLocationArduino
+   updateBusLocationArduino,
+   getBoardedCount
 };
