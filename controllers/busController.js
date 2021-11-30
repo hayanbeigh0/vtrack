@@ -91,7 +91,8 @@ const getBoardedCount = catchAsync(async (req, res, next) => {
    res.status(200).json({
       status: 'success',
       data: {
-         studentsBoarded: studentBoardedCount.length
+         studentsBoarded: studentBoardedCount.length,
+         studentBoardedStr: `${studentBoardedCount.length}`
       }
    })
 })
