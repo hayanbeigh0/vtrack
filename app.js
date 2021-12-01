@@ -8,6 +8,7 @@ const globalErrorHandler = require('./controllers/errorController');
 const AppError = require('./utilities/appError');
 const busRouter = require('./routes/busRoutes');
 const userRouter = require('./routes/userRoutes');
+const notificationRouter = require('./routes/notificationRoutes')
 
 const app = express();
 // app.use((req, res, next) => {
@@ -45,6 +46,7 @@ app.use(compression());
 // ROUTE HANDLERS ---
 app.use('/api/v1/buses', busRouter);
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/notification', notificationRouter)
 
 app.all('*', (req, res, next) => {
    return next(
