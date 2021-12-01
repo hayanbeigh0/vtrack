@@ -83,8 +83,8 @@ const userSchema = new mongoose.Schema({
       default: false,
    },
    myRoute: {
-      type: Number,
-      default: 0
+      type: String,
+      default: null
    }
 });
 
